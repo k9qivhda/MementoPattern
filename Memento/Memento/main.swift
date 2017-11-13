@@ -8,5 +8,17 @@
 
 import Foundation
 
-print("Hello, World!")
+let ledger = Ledger()
+
+
+let undoCommand1 = ledger.addEntry("Bob", amount: 100.43)
+ledger.addEntry("Joe", amount: 200.20)
+let undoCommand2 = ledger.addEntry("Alice", amount: 500)
+ledger.addEntry("Tony", amount: 20)
+
+ledger.printEntries()
+undoCommand1.execute()
+ledger.printEntries()
+undoCommand2.execute()
+ledger.printEntries()
 
